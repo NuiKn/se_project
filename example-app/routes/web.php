@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\empController;
+use App\Http\Controllers\aController;
+use App\Http\Controllers\teamController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,10 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('index');
 });
-Route::get('emp', 'App\Http\Controllers\empController@index');
-Route::get('db', 'App\Http\Controllers\aController@index');
-Route::get('team', 'App\Http\Controllers\teamController@index');
+Route::get('emp', [empController::class,'index']);
+Route::get('db', [aController::class,'index']);
+Route::get('team', [teamController::class,'index']);
+Route::post('insert', [aController::class,'insert']);
 
 
 
